@@ -9,7 +9,8 @@ import java.util.TreeMap;
 /**
  * Response body for errors.
  * <p>
- * See {@link org.springframework.boot.web.servlet.error.DefaultErrorAttributes} for more information.
+ * See {@link org.springframework.boot.web.servlet.error.DefaultErrorAttributes} for more information
+ * on spring default error attributes.
  */
 public class ErrorResponse {
     private Date timestamp;

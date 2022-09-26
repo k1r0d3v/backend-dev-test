@@ -21,7 +21,7 @@ RUN ./mvnw clean package
 
 # Execution environment
 FROM eclipse-temurin:17-alpine
-ENV SPRING_ACTIVE_PROFILES="production"
+ENV SPRING_ACTIVE_PROFILE="production"
 ENV SERVER_PORT=5000
 ENV PRODUCTS_REPOSITORY_HOST="localhost"
 ENV PRODUCTS_REPOSITORY_PORT="3001"
@@ -32,4 +32,4 @@ EXPOSE ${SERVER_PORT}
 
 # Execute
 WORKDIR /app/
-ENTRYPOINT ["java", "-jar", "backend-dev-test-0.0.1-SNAPSHOT.jar", "--server.port=${SERVER_PORT}", "--spring.profiles.active=${SPRING_ACTIVE_PROFILES}", "--products.repository.external.host=${PRODUCTS_REPOSITORY_HOST}", "--products.repository.external.port=${PRODUCTS_REPOSITORY_PORT}"]
+ENTRYPOINT ["java", "-jar", "backend-dev-test-0.0.1-SNAPSHOT.jar", "--server.port=${SERVER_PORT}", "--spring.profiles.active=${SPRING_ACTIVE_PROFILE}", "--products.repository.external.host=${PRODUCTS_REPOSITORY_HOST}", "--products.repository.external.port=${PRODUCTS_REPOSITORY_PORT}"]

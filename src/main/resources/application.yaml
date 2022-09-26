@@ -1,8 +1,10 @@
+---
+# Default server options
 server:
   port: 5000
 
+# Default spring options
 spring:
   profiles:
     active:
-      - default
       - development

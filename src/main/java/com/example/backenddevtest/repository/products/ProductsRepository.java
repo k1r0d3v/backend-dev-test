@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Definition of a repository for products (or a port definition in hexagonal architecture).
+ * Repository interface for products (or a port definition in hexagonal architecture).
  */
 public interface ProductsRepository {
     /**

@@ -11,6 +11,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Internal service that provides new methods with common code (commonly built over repositories).
+ */
 @Component
 public class ProductsService {
     private final ProductsRepository productsRepository;

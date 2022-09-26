@@ -18,8 +18,10 @@ import java.util.List;
 /**
  * The application global exception handler.
  * <p>
- * Note: To handle {@code NoHandlerFoundException} exceptions, the DispatcherServlet option of throwExceptionIfNoHandlerFound must be false.
+ * To handle {@code NoHandlerFoundException} exceptions, the DispatcherServlet option of throwExceptionIfNoHandlerFound must be false.
  * For more information see {@link org.springframework.web.servlet.DispatcherServlet#setThrowExceptionIfNoHandlerFound(boolean)}.
+ * <p>
+ * Another method to control the default spring error response is to override {@link org.springframework.boot.web.servlet.error.DefaultErrorAttributes}.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {

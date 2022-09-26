@@ -1,6 +1,7 @@
 package com.example.backenddevtest.web.controller.product;
 
 import com.example.backenddevtest.repository.products.ProductsRepository;
+import com.example.backenddevtest.repository.products.impl.MockProductsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -17,16 +18,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-@ActiveProfiles({"default", "testing"})
+// Enables repository mocks
+@ActiveProfiles("testing")
 class SimilarProductsControllerTest {
-	@TestConfiguration
-	public static class SimilarProductsControllerTestConfiguration {
-		@Bean
-		public ProductsRepository productsRepository() {
-			return new MockProductsRepository();
-		}
-	}
-
 	@Autowired
 	private MockMvc mockMvc;
 

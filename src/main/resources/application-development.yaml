@@ -1,3 +1,9 @@
+---
+application:
+  enable:
+    # Allows CORS requests from all domains
+    publicAPI: true
+
 products:
   repository:
     external:

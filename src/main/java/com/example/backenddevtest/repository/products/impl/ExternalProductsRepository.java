@@ -8,6 +8,7 @@ import com.example.backenddevtest.repository.products.impl.model.ExternalProduct
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Products repository mock implementation (an adapter in hexagonal architecture) that communicates with
- * an external service that provides products.
+ * Products repository implementation (an adapter in hexagonal architecture), that communicates with
+ * an external REST service to provide products details.
  */
 @Repository
 public class ExternalProductsRepository implements ProductsRepository {

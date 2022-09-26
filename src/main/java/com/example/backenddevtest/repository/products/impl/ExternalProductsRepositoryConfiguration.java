@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Configuration class for {@link ExternalProductsRepository} adapter.
+ * {@link ExternalProductsRepository} adapter configuration class.
  */
 @Configuration
 @ConfigurationProperties(prefix = "products.repository.external")

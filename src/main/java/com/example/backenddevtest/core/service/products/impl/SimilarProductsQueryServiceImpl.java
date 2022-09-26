@@ -5,9 +5,7 @@ import com.example.backenddevtest.core.service.internal.products.ProductsService
 import com.example.backenddevtest.core.service.products.SimilarProductsQuery;
 import com.example.backenddevtest.core.service.products.SimilarProductsQueryService;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -19,7 +17,7 @@ public class SimilarProductsQueryServiceImpl implements SimilarProductsQueryServ
     }
 
     @Override
-    public List<ProductDetail> execute(@Valid SimilarProductsQuery query) {
+    public List<ProductDetail> execute(SimilarProductsQuery query) {
         return productsService.getSimilarProducts(query.getId());
     }
 }
