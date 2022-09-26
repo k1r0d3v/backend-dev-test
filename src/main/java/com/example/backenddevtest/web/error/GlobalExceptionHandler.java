@@ -53,7 +53,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllExceptions(Exception exception, WebRequest request, HttpServletRequest httpServletRequest) {
-        logger.error(exception);
+        logger.warn(exception);
 
         ErrorResponse response = new ErrorResponse();
         response.setTimestamp(Date.from(Instant.now()));

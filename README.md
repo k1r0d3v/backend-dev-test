@@ -2,22 +2,24 @@
 [Technical test](https://github.com/dalogax/backendDevTest) developed for MCA by __Alejandro Romero Rivera__. The following considerations have been taken into account in the realization of this test:
   1. The developer must demonstrate knowledge of the Spring Framework.
   2. Knowledge of hexagonal architecture (or ports and adapters) must be demonstrated.
-  3. Code cleanliness and maintainability
-  4. Additions that improve the quality of the project
+  3. Code cleanliness and maintainability.
+  4. Additions that improve the quality of the project.
 
 For these reasons, in the realization of this application decisions have been made that normally would not apply to an exercise of this size, such as:
   1. An architecture based on a hexagonal architecture has been implemented.
   2. Different application profiles have been defined (development, testing and production).
-  3. Testing (service unit testing and controller testing)  
-  4. Customized error management
+  3. Testing (service unit testing and controller testing)  .
+  4. Customized error management.
   5. Use of WebClient and Reactive API (Reactor) in repositories and services.
   6. The project has been dockerized, both the compilation and the deployment of the server.
 
 ## Project structure
 The project structure is divided into the following packages:
-  - `service`: Package that contains input interfaces (or ports) and implementations (or adapters), that communicates and implements the services that form the business logic or application core.
-    - `internal`: A service can be formed by common shared logic between the business logic services. To allow re-usage of that logic, this package composed of internal services has been defined. Internal services hold logic reusable between services.
-  - `repository`: This package contains data sources, defined by means of interfaces (or ports), and implementations (or adapters) of that data sources.
+  - `service`: Package that contains input interfaces (or ports) to the application core (or business logic) and implementations of that interfaces.
+    These interfaces define the _API_ to call the business logic and each one has its implementation, so forming the business logic.
+    Under this package, other packages are created to form groups of services with logical meaning, for example the package `products` groups services that operates on products like `SimilarProductsQueryService`.
+    - `internal`: A service can be formed by parts of common logic that can be shared with other services. To allow re-usage of that logic, this package composed of internal services has been defined. Internal services hold common logic reusable between services.
+  - `repository`: This package contains data sources defined by means of interfaces (or ports) and implementations (or adapters) of that data sources.
   - `web`: The web package contains classes related to the web part of the application. 
     - `controller`: Contains the controllers that define the _API REST_. 
     - `error`: Contains the web common error management of the application.
@@ -49,8 +51,8 @@ To start the service type:
 ```shell
 docker compose up
 ```
-This command will start the server. In the first execution, 
-the docker service will compile the code using maven, 
+This command will start the server executing the `jar` under `/app` folder. Note that, 
+in the first execution, the docker service will compile the code using maven, 
 and will move the generated `jar` file to the folder `/app` of the container.
 
 ### Configuration
