@@ -9,7 +9,7 @@ services:
       # PRODUCTS_REPOSITORY_PORT: 80
       PRODUCTS_REPOSITORY_HOST: localhost
       PRODUCTS_REPOSITORY_PORT: 3001
-    # Enable for network_mode other than host
+    # Enable for network_mode others than host
     # ports:
     #   - "5000:5000"
     network_mode: host
