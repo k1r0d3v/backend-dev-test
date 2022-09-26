@@ -38,7 +38,7 @@ The different profiles that have been defined for the application are:
 #### Example of installation in Arch Linux:
 ```shell
 # Installs it
-sudo pacman -S docker
+sudo pacman -S docker docker-compose
 
 # Starts the required docker service
 sudo systemctl start docker.service
