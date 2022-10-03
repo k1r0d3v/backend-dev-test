@@ -59,10 +59,8 @@ and will move the generated `jar` file to the folder `/app` of the container.
 To configure the service, edit the `docker-compose.yaml` file before starting the server. Configurable properties are:
 1. `SPRING_ACTIVE_PROFILE`, defaults to `development` profile. See [profiles](#profiles) section for more information. 
 2. `SERVER_PORT`, defaults to port `5000`
-3. `PRODUCTS_REPOSITORY_HOST`, the given product's server _API REST_ host name, defaults to `localhost`
+3. `PRODUCTS_REPOSITORY_HOST`, the given product's server _API REST_ host name, defaults to `host.docker.internal`
 4. `PRODUCTS_REPOSITORY_PORT`, the given product's server _API REST_ defaults to `3001`
-
-Note: The default `network_mode` is `host`, that means that the server will form part of the host network.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
