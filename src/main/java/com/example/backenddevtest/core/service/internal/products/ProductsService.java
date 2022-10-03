@@ -25,8 +25,6 @@ public class ProductsService {
     public List<ProductDetail> getSimilarProducts(String productId)
     {
         return productsRepository.getSimilarProductsIds(productId)
-                // If no product identifiers are found fallback to an empty list
-                .onErrorResume(DataNotFoundException.class, exception -> Mono.just(Collections.emptyList()))
                 // Generates a Flux of product identifiers
                 .flatMapMany(Flux::fromIterable)
                 // Retrieve the product details for each product identifier as a Mono and merge it into a single Flux

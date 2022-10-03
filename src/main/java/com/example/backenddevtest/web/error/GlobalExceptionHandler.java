@@ -1,5 +1,6 @@
 package com.example.backenddevtest.web.error;
 
+import com.example.backenddevtest.repository.exception.DataNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         response.setError("Your request parameters didn't validate.");
         response.setPath(httpServletRequest.getRequestURI());
         response.addAdditionalAttribute("validation-messages", validations);
+
+        return handleExceptionInternal(exception, response, request);
+    }
+
+    /**
+     * Handler for Not Found errors.
+     */
+    @ExceptionHandler({DataNotFoundException.class})
+    public ResponseEntity<Object> handleNotFoundExceptions(DataNotFoundException exception, WebRequest request, HttpServletRequest httpServletRequest) {
+        logger.warn(exception);
+
+        ErrorResponse response = new ErrorResponse();
+        response.setTimestamp(Date.from(Instant.now()));
+        response.setStatus(HttpStatus.NOT_FOUND.value());
+        response.setError(HttpStatus.NOT_FOUND.getReasonPhrase());
+        response.setPath(httpServletRequest.getRequestURI());
 
         return handleExceptionInternal(exception, response, request);
     }

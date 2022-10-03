@@ -49,9 +49,8 @@ public class ProductsServiceTest {
         when(productsRepository.getProduct("7")).thenReturn(Mono.error(new DataNotFoundException("")));
         when(productsRepository.getProduct("8")).thenReturn(Mono.error(new DataAccessException("")));
 
-        // Handled Not Found error in similarIds
-        List<ProductDetail> emptySimilarProducts = productsService.getSimilarProducts("1");
-        assertTrue(emptySimilarProducts.isEmpty());
+        // Not Found error in similarIds
+        assertThrowsExactly(DataNotFoundException.class, () -> productsService.getSimilarProducts("1"));
 
         // Unhandled data access error in similarIds
         assertThrowsExactly(DataAccessException.class, () -> productsService.getSimilarProducts("2"));
