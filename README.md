@@ -1,5 +1,5 @@
 # Backend developer technical test
-[Technical test](https://github.com/dalogax/backendDevTest) developed for MCA by __Alejandro Romero Rivera__. The following considerations have been taken into account in the realization of this test:
+[Technical test](https://github.com/dalogax/backendDevTest) developed by __Alejandro Romero Rivera__. The following considerations have been taken into account in the realization of this test:
   1. The developer must demonstrate knowledge of the Spring Framework.
   2. Knowledge of hexagonal architecture (or ports and adapters) must be demonstrated.
   3. Code cleanliness and maintainability.
